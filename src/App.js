@@ -5,6 +5,8 @@ const config = require('./utils/config')
 
 function App() {
   console.log(config.API_KEY);
+  console.log('aca llegó');
+  console.log(process.env.API_KEY);
   return (
     <div className="App">
       <header className="App-header">
