@@ -6,7 +6,7 @@ const config = require('./utils/config')
 function App() {
   console.log(config.API_KEY);
   console.log('aca llegó');
-  console.log(process.env.REACT_APP_API_KEY);
+  console.log(process.env.REACT_APP_API_KEY_2);
   return (
     <div className="App">
       <header className="App-header">
