@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
+const config = require('./utils/config')
+
 function App() {
+  console.log(config.API_KEY);
   return (
     <div className="App">
       <header className="App-header">
