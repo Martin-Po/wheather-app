@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'http://api.openweathermap.org/geo/1.0/';
+const baseUrl = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/';
 
 const config = require('../utils/config');
 
