@@ -1,7 +1,8 @@
 import axios from 'axios';
-const baseUrl = 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/';
-
 const config = require('../utils/config');
+
+const baseUrl = 'https://api.openweathermap.org/geo/1.0/'
+
 
 const getLocationByCoordinates = (lat, lon, limit) => {
   const request = axios.get(`${baseUrl}reverse?lat=${lat}&lon=${lon}&limit=${limit}&appid=${config.API_KEY}`);
