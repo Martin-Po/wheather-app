@@ -5,7 +5,8 @@ import locationService from './services/location'
 import weatherService from './services/weather'
 import AppBar from './components/AppBar'
 import { Weather } from './components/Weather'
-import { CssBaseline } from '@mui/material'
+import { Box, CssBaseline } from '@mui/material'
+import { Location } from './components/Location'
 
 const getLocationName = async (userLocation) => {
     if (userLocation) {
@@ -76,11 +77,12 @@ const getWeatherByCoordinates = async (selectedLocation) => {
     }
 }
 
+
 function App() {
     const [userLocation, setUserLocation] = useState(null) //User curren location, shown in top left corner
     const [userLocationWeather, setUserLocationWeather] = useState(null) //User curren location, shown in top left corner
 
-    const [locationName, setlocationName] = useState(null) //Location retrieved, if one, set selectedlocation, if not, max 5 to select from
+    const [filteredLocations, setfilteredLocations] = useState([]) //Location retrieved, if one, set selectedlocation, if not, max 5 to select from
     const [weather, setWeather] = useState(null) //weathen shown
     const [selectedLocation, setSelectedLocation] = useState(null) //The one shown
 
@@ -160,14 +162,20 @@ function App() {
         }
     }
 
+    const filterLocations = (newFilter) => {
+      setfilteredLocations(newFilter)       
+  }
+    
+
     console.log('weather')
     console.log(weather)
     console.log(userLocationWeather);
     console.log(userLocation)
+    console.log(filteredLocations);
     console.log('weather2')
 
     return (
-        <div style={{ minHeight: '100vh', position: 'relative', width:'100vw' }}>
+        <div style={{ minHeight: '100vh', position: 'relative' }}>
             <CssBaseline />
 
             <AppBar weather ={userLocationWeather} />
@@ -180,7 +188,6 @@ function App() {
                     width: '1280px',
                     marginTop: '56px',
                     display: 'flex',
-                    flexDirection: 'column',
 
                     '@media (max-width:1300px)': {
                         width: '992px',
@@ -190,7 +197,8 @@ function App() {
                     },
                 }}
             >
-                <LocationFilter />
+                <Grid item  xs={12} >
+                <LocationFilter filterLocations = {filterLocations} />
                 <h1>Geolocation App</h1>
                 <button onClick={changeUserLocation}>Get User Location</button>
                 {selectedLocation && (
@@ -205,9 +213,17 @@ function App() {
                         <p>Location: {selectedLocation.name}</p>
                     </div>
                 )}
-                <Grid xs={12} sm={6} >
+                </Grid>
+
+                
+
+                <Grid item  xs={12} sm={6} >
                 <Weather weather={weather}/>
                 </Grid>
+                <Grid item  xs={12} sm={6} >
+                {filteredLocations.length > 0 && filteredLocations.map(location => {return(<Location xs={12} sm={6} location = {location}/>)})}
+                </Grid>
+                
             </Grid>
         </div>
     )

@@ -49,6 +49,7 @@ return (
 
 </Box>
         <Typography sx={{fontSize:'1rem'}}>feels like: {Math.floor((weather.main.feels_like - 273.15) * 10) / 10} °C. {weather.weather[0].description}</Typography>
+        <Typography sx={{fontSize:'1rem'}}>Humidity: {weather.main.humidity}%. Pressure: {weather.main.pressure}hpa</Typography>
     </Box>
 )
 }
