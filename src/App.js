@@ -4,8 +4,6 @@ import Grid from '@mui/material/Unstable_Grid2'
 import locationService from './services/location'
 import weatherService from './services/weather'
 import AppBar from './components/AppBar'
-import { wait } from '@testing-library/user-event/dist/utils'
-import { set } from 'mongoose'
 import { Weather } from './components/Weather'
 import { CssBaseline } from '@mui/material'
 
