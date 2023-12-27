@@ -1,15 +1,18 @@
-import { Box } from "@mui/material"
+import { Box, Divider, ListItem, ListItemText, Paper } from "@mui/material"
 
-const Location = ({ location }) => {
+const Location = ({ location, changeSelectedWaether }) => {
     if (!location ) return (<Box>
        
     </Box>)
+
+    const handleOnClick = () => {
+        changeSelectedWaether(location)
+    }
 return (
 
-<Box>
-   {location.name}
-</Box>
-)
+<ListItem button onClick={handleOnClick}>
+<ListItemText primary={`${location.name}, ${location.state}, ${location.country}`} />
+      </ListItem>)
 }
 
 export { Location }
