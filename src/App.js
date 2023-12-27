@@ -232,7 +232,7 @@ function App() {
                     )} */}
                 </Grid>
 
-                <Grid item xs={12} sm={5}>
+                <Grid item xs={12} sm={5} sx={{ display: 'flex', flexDirection:'column', alignItems:'center' }} >
                     <Weather weather={weather} />
                 </Grid>
                 <Divider
@@ -241,6 +241,8 @@ function App() {
                     variant="middle"
                     flexItem
                 />
+                                         
+
                 <Grid
                     item
                     xs={12}
@@ -249,6 +251,7 @@ function App() {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
+                        alignItems:'center'
                     }}
                 >
                     <List
@@ -256,6 +259,7 @@ function App() {
                             width: '100%',
                             maxWidth: 360,
                             bgcolor: 'background.paper',
+                            marginTop: { xs: '2rem', sm: '0' } 
                         }}
                         component="nav"
                         aria-label="mailbox folders"
